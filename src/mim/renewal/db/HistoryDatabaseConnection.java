@@ -17,7 +17,7 @@ public class HistoryDatabaseConnection extends DatabaseConnection {
 		
 		log.info("Initializing HistoryDatabaseConnection");
 		
-		ResourceBundle myResources = ResourceBundle.getBundle("renewal");
+		ResourceBundle myResources = ResourceBundle.getBundle("notify");
 		dbUsername = myResources.getString("db.history.user");
 		dbPassword = myResources.getString("db.history.password");
 		dbUrl = myResources.getString("db.history.url");

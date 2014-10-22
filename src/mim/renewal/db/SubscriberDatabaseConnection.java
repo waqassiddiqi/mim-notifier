@@ -17,7 +17,7 @@ public class SubscriberDatabaseConnection extends DatabaseConnection {
 		
 		log.info("Initializing SubscriberDatabaseConnection");
 		
-		ResourceBundle myResources = ResourceBundle.getBundle("renewal");
+		ResourceBundle myResources = ResourceBundle.getBundle("notify");
 		dbUsername = myResources.getString("db.mim.user");
 		dbPassword = myResources.getString("db.mim.password");
 		dbUrl = myResources.getString("db.mim.url");

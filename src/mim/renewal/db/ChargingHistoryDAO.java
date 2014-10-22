@@ -240,7 +240,7 @@ public class ChargingHistoryDAO {
 				commandsMapping.put(rs.getString("Command"), rs.getString("Xml"));
 				
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error("getNotifyCommands failed: " + e.getMessage(), e);
 		} finally {
 			try {

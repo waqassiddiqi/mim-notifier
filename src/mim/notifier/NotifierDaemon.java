@@ -2,6 +2,7 @@ package mim.notifier;
 
 import java.util.ResourceBundle;
 
+import mim.provgw.Client;
 import mim.renewal.task.NotifyInActiveSubscriberTask;
 
 import org.apache.log4j.Logger;
@@ -26,6 +27,8 @@ public class NotifierDaemon {
 		ResourceBundle myResources = ResourceBundle.getBundle("notify");
 		
 		cycleStart = Integer.parseInt(myResources.getString("notify.start_hour"));
+		Client.provGwIP = myResources.getString("provgw.ip");
+		Client.provGwPort = Integer.parseInt(myResources.getString("provgw.port"));
 	}
 	
 	public void startDaemon() throws SchedulerException {
@@ -46,7 +49,8 @@ public class NotifierDaemon {
 		Scheduler scheduler = new StdSchedulerFactory().getScheduler();
     	scheduler.start();
     	scheduler.scheduleJob(jobNotify, dailyNotifyTrigger);
-    	    	
+    	
+    	scheduler.triggerJob(jobNotify.getKey());
     	
     	log.info("NotifierDaemon has started...");
     	    	
