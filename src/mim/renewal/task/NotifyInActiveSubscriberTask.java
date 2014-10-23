@@ -46,7 +46,7 @@ public class NotifyInActiveSubscriberTask implements Job {
 			
 			if(xmlRequest != null) {
 				xmlRequest = xmlRequest.replace("#DestAddr#", "6060");
-				xmlRequest = xmlRequest.replace("#apartyMSISDN#", s.getaParty());
+				xmlRequest = xmlRequest.replace("#SrcAddr#", s.getaParty());
 				
 				String refId = Util.generateReferenceId();
 				
